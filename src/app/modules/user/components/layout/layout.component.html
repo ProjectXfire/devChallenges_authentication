@@ -1,0 +1,34 @@
+<section class="user-section">
+  <nav class="user-nav">
+    <div class="user-nav__logo">
+      <img
+        class="user-nav__logo"
+        src="./assets/images/devchallenges.svg"
+        alt="devChallenges"
+      />
+    </div>
+    <div *ngIf="user$ | async as user" class="user-nav__info">
+      <img [src]="user.photo || defaultAvatar" alt="avatar" />
+      <p>{{ user.name }}</p>
+      <button mat-button [matMenuTriggerFor]="menu" aria-label="profile menu">
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <a mat-menu-item routerLink="/profile">
+          <mat-icon>person_pin</mat-icon>
+          <span>Profile</span>
+        </a>
+        <a mat-menu-item routerLink="/chat">
+          <mat-icon>group</mat-icon>
+          <span>Group chat</span>
+        </a>
+        <mat-divider></mat-divider>
+        <button mat-menu-item (click)="logout()">
+          <mat-icon>input</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
+</section>

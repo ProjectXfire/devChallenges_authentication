@@ -1,0 +1,100 @@
+<section class="register">
+  <div>
+    <img src="./assets/images/devchallenges.svg" alt="devChallenges" />
+    <h1>Join thousands of learners from around the world</h1>
+    <p>
+      Master web development by making real-life projects. There are multiple
+      paths for you to choose
+    </p>
+    <form
+      [formGroup]="form"
+      (ngSubmit)="register($event)"
+      class="register__form"
+    >
+      <div class="group" [class.disabled]="disabled">
+        <div class="input-icon">
+          <mat-icon aria-hidden="false" aria-label="email icon"
+            >person</mat-icon
+          >
+          <input
+            name="name"
+            type="name"
+            placeholder="Name"
+            formControlName="name"
+          />
+        </div>
+        <span
+          *ngIf="
+            form.controls['name'].touched &&
+            form.controls['name'].hasError('required')
+          "
+        >
+          Name is required
+        </span>
+      </div>
+      <div class="group" [class.disabled]="disabled">
+        <div class="input-icon">
+          <mat-icon aria-hidden="false" aria-label="email icon">email</mat-icon>
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            formControlName="email"
+          />
+        </div>
+        <span
+          *ngIf="
+            form.controls['email'].touched &&
+            form.controls['email'].hasError('required')
+          "
+        >
+          Email is required
+        </span>
+        <span
+          *ngIf="
+            form.controls['email'].touched &&
+            form.controls['email'].hasError('email')
+          "
+        >
+          Invalid email
+        </span>
+      </div>
+      <div class="group" [class.disabled]="disabled">
+        <div class="input-icon">
+          <mat-icon aria-hidden="false" aria-label="password icon"
+            >lock</mat-icon
+          >
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+        <span
+          *ngIf="
+            form.controls['password'].touched &&
+            form.controls['password'].hasError('required')
+          "
+          >Password is required</span
+        >
+        <span
+          *ngIf="
+            form.controls['password'].touched &&
+            form.controls['password'].hasError('minlength')
+          "
+        >
+          Password must contain at least 8 characters
+        </span>
+      </div>
+      <div class="actions">
+        <button type="submit">Register</button>
+        <div *ngIf="errorMessage$ | async as errorMessage">
+          <span *ngIf="errorMessage">{{ errorMessage }}</span>
+        </div>
+        <p>Already a member? <a routerLink="/login">Login</a></p>
+      </div>
+    </form>
+  </div>
+</section>
+<app-footer></app-footer>

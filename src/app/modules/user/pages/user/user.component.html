@@ -1,0 +1,44 @@
+<section class="profile">
+  <div class="profile__title">
+    <h1>Personal info</h1>
+    <p>Basic info, like your name and photo</p>
+  </div>
+  <div class="profile__content">
+    <div class="profile__header">
+      <div>
+        <h1>Profile</h1>
+        <p>Some info may be visible to other people</p>
+      </div>
+      <div>
+        <a routerLink="/profile/edit">Edit</a>
+      </div>
+    </div>
+    <table *ngIf="user" class="profile__table">
+      <tr>
+        <td>PHOTO</td>
+        <td><img [src]="user.photo || defaultAvatar" alt="avatar" /></td>
+      </tr>
+      <tr>
+        <td>NAME</td>
+        <td>{{ user.name }}</td>
+      </tr>
+      <tr>
+        <td>BIO</td>
+        <td>{{ user.bio }}</td>
+      </tr>
+      <tr>
+        <td>PHONE</td>
+        <td>{{ user.phone }}</td>
+      </tr>
+      <tr>
+        <td>EMAIL</td>
+        <td>{{ user.email }}</td>
+      </tr>
+      <tr>
+        <td>PASSWORD</td>
+        <td>{{ user.password | hidePassword }}</td>
+      </tr>
+    </table>
+  </div>
+  <app-footer></app-footer>
+</section>

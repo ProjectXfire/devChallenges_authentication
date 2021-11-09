@@ -1,0 +1,85 @@
+<section class="login">
+  <div>
+    <img src="./assets/images/devchallenges.svg" alt="devChallenges" />
+    <h1>Login</h1>
+    <form [formGroup]="form" (ngSubmit)="login($event)" class="login__form">
+      <div class="group">
+        <div class="input-icon">
+          <mat-icon aria-hidden="false" aria-label="email icon">email</mat-icon>
+          <input
+            name="email"
+            type="email"
+            placeholder="Email"
+            formControlName="email"
+          />
+        </div>
+        <span
+          *ngIf="
+            form.controls['email'].touched &&
+            form.controls['email'].hasError('required')
+          "
+        >
+          Email is required
+        </span>
+        <span
+          *ngIf="
+            form.controls['email'].touched &&
+            form.controls['email'].hasError('email')
+          "
+        >
+          Invalid email
+        </span>
+      </div>
+      <div class="group">
+        <div class="input-icon">
+          <mat-icon aria-hidden="false" aria-label="password icon"
+            >lock</mat-icon
+          >
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+        <span
+          *ngIf="
+            form.controls['password'].touched &&
+            form.controls['password'].hasError('required')
+          "
+          >Password is required</span
+        >
+        <span
+          *ngIf="
+            form.controls['password'].touched &&
+            form.controls['password'].hasError('minlength')
+          "
+        >
+          Password must contain at least 8 characters
+        </span>
+      </div>
+      <div class="actions">
+        <button type="submit">Login</button>
+        <span *ngIf="errorMessage$ | async as errorMessage">{{
+          errorMessage
+        }}</span>
+      </div>
+    </form>
+    <div class="login__social">
+      <p>or continue with these social profile</p>
+      <div class="social-icons">
+        <a [href]="api_url + '/auth/google/login'">
+          <img src="./assets/images/Google.svg" alt="google" />
+        </a>
+        <a [href]="api_url + '/auth/facebook/login'">
+          <img src="./assets/images/Facebook.svg" alt="facebook" />
+        </a>
+        <a [href]="api_url + '/auth/github/login'">
+          <img src="./assets/images/Github.svg" alt="github" />
+        </a>
+      </div>
+      <p>Don't have an account yet? <a routerLink="/register">register</a></p>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

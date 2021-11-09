@@ -1,0 +1,128 @@
+:host {
+  max-width: 800px;
+  width: 100%;
+  max-height: 100%;
+  @media screen and (min-width: 510px) {
+    padding: 0px 10px;
+  }
+}
+
+.profile-edit {
+  padding: 0 10px;
+  margin-top: 70px;
+  &__back {
+    display: flex;
+    align-items: center;
+    color: #1e88e5;
+  }
+  &__form-title {
+    margin: 20px 0;
+  }
+  &__form-actions {
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background-color: #1e88e5;
+      color: white;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+  }
+  @media screen and (min-width: 510px) {
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+    padding: 20px;
+  }
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  &__change {
+    position: relative;
+    width: 100px;
+    overflow: hidden;
+    img {
+      border-radius: 10px;
+      width: 100px;
+    }
+    label {
+      position: absolute;
+      display: flex;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      align-items: center;
+      justify-content: center;
+      z-index: 0;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: black;
+      opacity: 0.8;
+      transform: translateY(-101%);
+      transition: all 0.5s ease-in-out;
+      input[type="file"] {
+        display: none;
+      }
+      mat-icon {
+        color: white;
+      }
+    }
+    &:hover {
+      label {
+        transform: translateY(0%);
+      }
+    }
+  }
+}
+
+.avatar-alert {
+  display: block;
+  margin: 10px 0;
+  color: red;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  span {
+    margin-top: 5px;
+    margin-left: 5px;
+    color: red;
+    font-size: 0.8rem;
+  }
+  label {
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+  }
+  input {
+    outline: none;
+    padding: 10px 15px;
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+    &::placeholder {
+      color: #bdbdbd;
+    }
+  }
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  textarea {
+    min-height: 80px;
+    padding: 10px 15px;
+    outline: none;
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+    &::placeholder {
+      color: #bdbdbd;
+    }
+  }
+}

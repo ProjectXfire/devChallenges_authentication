@@ -1,0 +1,101 @@
+<section class="profile-edit">
+  <a class="profile-edit__back" routerLink="/profile"
+    ><mat-icon aria-hidden="false" aria-label="back icon"
+      >keyboard_arrow_left</mat-icon
+    >Back</a
+  >
+  <form
+    class="profile-edit__form"
+    [formGroup]="form"
+    (ngSubmit)="submit($event)"
+  >
+    <div class="profile-edit__form-title">
+      <h1>Change Info</h1>
+      <p>Changes will be reflected to every services</p>
+    </div>
+    <div class="avatar">
+      <div class="avatar__change">
+        <img [src]="avatar || defaultAvatar" alt="avatar" />
+        <label
+          ><input type="file" (change)="getImage($event)" /><mat-icon
+            >camera_alt</mat-icon
+          ></label
+        >
+      </div>
+      <p>CHANGE PHOTO</p>
+    </div>
+    <span class="avatar-alert">{{ avatarSize }}</span>
+    <div class="group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        placeholder="Enter your name"
+        formControlName="name"
+      />
+      <span
+        *ngIf="
+          form.controls['name'].touched &&
+          form.controls['name'].hasError('required')
+        "
+      >
+        Name is required
+      </span>
+    </div>
+    <div class="group">
+      <label for="bio">Bio</label>
+      <textarea
+        type="text"
+        name="bio"
+        placeholder="Enter your bio"
+        formControlName="bio"
+      ></textarea>
+    </div>
+    <div class="group">
+      <label for="phone">Phone</label>
+      <input
+        type="number"
+        name="phone"
+        placeholder="Enter your phone"
+        formControlName="phone"
+      />
+      <span
+        *ngIf="
+          form.controls['phone'].touched &&
+          form.controls['phone'].hasError('required')
+        "
+      >
+        Phone is required
+      </span>
+    </div>
+    <div class="group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        formControlName="email"
+      />
+      <span
+        *ngIf="
+          form.controls['email'].touched &&
+          form.controls['email'].hasError('required')
+        "
+      >
+        Email is required
+      </span>
+      <span
+        *ngIf="
+          form.controls['email'].touched &&
+          form.controls['email'].hasError('email')
+        "
+      >
+        Invalid email
+      </span>
+    </div>
+    <div class="profile-edit__form-actions">
+      <button type="submit">Save</button>
+    </div>
+  </form>
+</section>
+<app-footer></app-footer>

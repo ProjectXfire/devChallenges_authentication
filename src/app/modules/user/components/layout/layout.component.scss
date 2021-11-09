@@ -1,0 +1,51 @@
+.user-section {
+  width: 100%;
+  height: calc(100vh - 40px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.user-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: white;
+  -webkit-box-shadow: 0px 2px 3px -1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 2px 3px -1px rgba(0, 0, 0, 0.3);
+  &__logo {
+    display: flex;
+  }
+  &__info {
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    gap: 5px;
+    p {
+      display: none;
+    }
+    img {
+      width: 40px;
+      border-radius: 5px;
+    }
+    mat-icon {
+      cursor: pointer;
+    }
+    button {
+      border: none;
+      background-color: white;
+    }
+  }
+  @media screen and (min-width: 650px) {
+    &__info {
+      p {
+        display: block;
+      }
+    }
+  }
+}

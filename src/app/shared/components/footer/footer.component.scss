@@ -1,0 +1,15 @@
+:host {
+  width: 100%;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 0 10px;
+  color: rgb(187, 187, 187);
+  font-size: 0.9rem;
+  strong {
+    text-decoration: underline;
+  }
+}
