@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 // Models
 import { IUser } from '@models/user';
@@ -15,17 +15,17 @@ import { StoreService } from '@services/store/store.service';
   styleUrls: ['./user-edit.component.scss'],
 })
 export class UserEditComponent implements OnInit {
+  user: IUser | null = null;
+  defaultAvatar = './assets/images/default.png';
+  avatar: string | ArrayBuffer | null = '';
+  avatarSize: string = '';
+
   constructor(
     private formBuilderService: FormBuilder,
     private routerService: Router,
     private userService: UserService,
     private storeService: StoreService
   ) {}
-
-  user: IUser | null = null;
-  defaultAvatar = './assets/images/default.png';
-  avatar: string | ArrayBuffer | null = '';
-  avatarSize: string = '';
 
   form = this.formBuilderService.group({
     name: ['', [Validators.required]],

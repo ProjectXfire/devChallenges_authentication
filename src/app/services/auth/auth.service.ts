@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 // Models
 import { TToken } from '@models/token';
 // Services
@@ -17,7 +18,8 @@ export class AuthService {
   constructor(
     private httpClientService: HttpClient,
     private tokenService: TokenService,
-    private errorsService: ErrorsService
+    private errorsService: ErrorsService,
+    private router: Router
   ) {}
 
   login(email: string, password: string): Observable<TToken> {
@@ -30,5 +32,9 @@ export class AuthService {
         catchError((error) => this.errorsService.handleErrorMessage(error)),
         tap((token) => this.tokenService.setToken(token.access_token))
       );
+  }
+  logout() {
+    this.tokenService.removeToken();
+    this.router.navigate(['login']);
   }
 }

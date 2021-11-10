@@ -6,6 +6,7 @@ import { IUserNavData } from '@models/user';
 // Services
 import { StoreService } from '@services/store/store.service';
 import { TokenService } from '@services/token/token.service';
+import { AuthService } from '@services/auth/auth.service';
 
 @Component({
   selector: 'app-layout',
@@ -18,7 +19,8 @@ export class LayoutComponent implements OnInit {
   constructor(
     private storeService: StoreService,
     private tokenService: TokenService,
-    private routerService: Router
+    private routerService: Router,
+    private authService: AuthService
   ) {
     this.user$ = this.storeService.user$;
   }
@@ -26,8 +28,7 @@ export class LayoutComponent implements OnInit {
   defaultAvatar = './assets/images/default.png';
 
   logout() {
-    this.tokenService.removeToken();
-    this.routerService.navigate(['login']);
+    this.authService.logout();
   }
 
   ngOnInit(): void {}

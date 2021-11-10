@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 // Models
 import { IUser } from '@models/user';
 // Services
 import { UserService } from '@services/user/user.service';
 import { StoreService } from '@services/store/store.service';
+import { TokenService } from '@services/token/token.service';
+import { AuthService } from '@services/auth/auth.service';
 
 @Component({
   selector: 'app-user',
@@ -13,7 +17,9 @@ import { StoreService } from '@services/store/store.service';
 export class UserComponent implements OnInit {
   constructor(
     private userService: UserService,
-    private storeService: StoreService
+    private storeService: StoreService,
+    private tokenService: TokenService,
+    private authService: AuthService
   ) {}
 
   user: IUser | null = null;

@@ -16,6 +16,7 @@ export class StoreService {
     photo: '',
   });
   user$ = this.userName.asObservable();
+  private token = new BehaviorSubject<string | null>(null);
 
   setUserName(name: string, photo: string) {
     this.userName.next({

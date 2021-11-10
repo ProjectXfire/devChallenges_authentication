@@ -16,7 +16,7 @@ export class TokenService {
     return this.cookieService.get('token');
   }
   removeToken() {
-    this.cookieService.delete('token');
+    this.cookieService.delete('token', '/');
   }
   existToken(): boolean {
     return this.cookieService.check('token');

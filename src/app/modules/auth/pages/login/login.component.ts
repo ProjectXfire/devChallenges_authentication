@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     password: ['', [Validators.required, Validators.minLength(8)]],
   });
   errorMessage$: Observable<string>;
+
   api_url: string = '';
 
   constructor(

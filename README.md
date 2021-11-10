@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://{your-demo-link.your-domain}">
+    <a href="https://cranky-mirzakhani-fe9180.netlify.app/login">
       Demo
     </a>
     <span> | </span>
-    <a href="https://{your-url-to-the-solution}">
+    <a href="https://github.com/ProjectXfire/devChallenges_authentication">
       Solution
     </a>
     <span> | </span>
@@ -31,16 +31,25 @@
 - [Features](#features)
 - [How to use](#how-to-use)
 
+Fron-End Tools
+
+- [Angular](https://angular.io/)
+
+# Plugins
+
+- [ngx-cookie-service](https://www.npmjs.com/package/ngx-cookie-service)
+
+Back-End Tools
+
+- [NestJS](https://nestjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+
 <!-- OVERVIEW -->
 
 ## Overview
 
-Introduce your projects by taking a screenshot or a gif. Try to tell visitors a story about your project by answering:
-
-- Where can I see your demo?
-- What was your experience?
-- What have you learned/improved?
-- Your wisdom? :)
+This project is a login page, you can create your own account or login using oauth, you have three options, google, facebook and github. When the account is created you can see the detail of it and change some values, for example the photo.
+If you want to close the session, in the top menu there is a down arrow that will display dropdown, select the logout option.
 
 ### Built With -------->
 
