@@ -31,15 +31,15 @@
 - [Features](#features)
 - [How to use](#how-to-use)
 
-Fron-End Tools
+# Fron-End Tools
 
 - [Angular](https://angular.io/)
 
-# Plugins
+## Plugins
 
 - [ngx-cookie-service](https://www.npmjs.com/package/ngx-cookie-service)
 
-Back-End Tools
+# Back-End Tools
 
 - [NestJS](https://nestjs.com/)
 - [MongoDB](https://www.mongodb.com/)
